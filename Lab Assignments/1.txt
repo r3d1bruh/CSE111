@@ -37,3 +37,28 @@ class Main {
         System.out.println("There are " + count + " prime number(s).");
     }
 }
+
+// TASK 2
+import java.util.*;
+class Main {
+    public static void main(String[] args) 
+    {
+        Scanner x = new Scanner(System.in);
+        String text = x.nextLine();
+        char[] chars = text.toCharArray();
+        x.close();
+        for(int i=0;i<chars.length;i++)
+        {
+            int temp = (int)chars[i];
+            if(temp==97)
+            {
+                temp = 122;
+            }
+            else
+            {
+                temp--;
+            }
+            System.out.print((char)temp);
+        }
+    }
+}
