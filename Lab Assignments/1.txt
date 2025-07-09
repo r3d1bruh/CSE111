@@ -1,59 +1,39 @@
-//task 1
+//HOMEWORK
+//TASK 1
 import java.util.*;
 class Main {
     public static void main(String[] args) {
         Scanner x = new Scanner(System.in);
-        int temp;
-        int sum =0;
-        int count=0;
-        int min=Integer.MAX_VALUE;
-        int max=Integer.MIN_VALUE;
-        for(int i = 0; i<10;i++)
-        {
-            temp = x.nextInt();
-            if(temp>0&&temp%2!=0)
-            {
-                sum+=temp;
-                count++;
-                if(temp>max)
-                {
-                    max = temp;
-                }
-                if(temp<min)
-                {
-                    min = temp;
-                }
-            }
+        int num1 = x.nextInt();
+        int num2 = x.nextInt();
+        int min, max, count = 0;
+
+        if (num1 > num2) {
+            max = num1 - 1;
+            min = num2 + 1;
+        } else {
+            max = num2 - 1;
+            min = num1 + 1;
         }
-        x.close();
-        System.out.println(sum);
-        System.out.println(min);
-        System.out.println(max);
-        System.out.println(((double)sum/count));
-    }
-}
-// TASK 2
-// Online Java Compiler
-// Use this editor to write, compile and run your Java code online
-import java.util.*;
-class Main {
-    public static void main(String[] args) {
-        Scanner x = new Scanner(System.in);
-        String text = x.nextLine();
-        char[] chars = text.toCharArray();
-        x.close();
-        for(int i=0;i<chars.length;i++)
-        {
-            int temp = (int)chars[i];
-            if(temp==97)
-            {
-                temp = 122;
+
+        while (min <= max) {
+            int isPrime = 1;
+            if (min <= 1) {
+                isPrime = 0;
+            } else {
+                int divisor = 2;
+                while (divisor < min) {
+                    if (min % divisor == 0) {
+                        isPrime = 0;
+                        break;
+                    }
+                    divisor++;
+                }
             }
-            else
-            {
-                temp--;
-            }
-            System.out.print((char)temp);
+            count += isPrime; 
+            min++;
         }
+
+        System.out.println("There are " + count + " prime number(s).");
     }
 }
