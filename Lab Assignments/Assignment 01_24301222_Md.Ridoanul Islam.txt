@@ -7,7 +7,6 @@ class Main {
         int num1 = x.nextInt();
         int num2 = x.nextInt();
         int min, max, count = 0;
-
         if (num1 > num2) {
             max = num1 - 1;
             min = num2 + 1;
@@ -15,7 +14,6 @@ class Main {
             max = num2 - 1;
             min = num1 + 1;
         }
-
         while (min <= max) {
             int isPrime = 1;
             if (min <= 1) {
@@ -33,7 +31,6 @@ class Main {
             count += isPrime; 
             min++;
         }
-
         System.out.println("There are " + count + " prime number(s).");
     }
 }
