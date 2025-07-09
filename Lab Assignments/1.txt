@@ -62,3 +62,29 @@ class Main {
         }
     }
 }
+//TASK 3
+import java.util.*;
+class Main {
+    public static void main(String[] args) 
+    {
+        Scanner x = new Scanner(System.in);
+        System.out.print("Enter the length of the array: ");
+        int length = x.nextInt();
+        int[] arr = new int[length];
+        for (int i = 0; i < length; i++) 
+        {
+            arr[i] = x.nextInt();
+        }
+        for (int i = 0; i < length / 2; i++) 
+        {
+            int temp = arr[i];
+            arr[i] = arr[length - 1 - i];
+            arr[length - 1 - i] = temp;
+        }
+        for (int i = 0; i < length; i++) 
+        {
+            System.out.print(arr[i] + " ");
+        }
+        x.close();
+    }
+}
