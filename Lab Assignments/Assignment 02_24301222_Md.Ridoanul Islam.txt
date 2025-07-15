@@ -9,3 +9,16 @@ public class CSECourse {
         this.credit = 3;
     }
 }
+
+//TASK 2
+public class ImaginaryNumber {
+    public int realPart;
+    public int imaginaryPart;
+    public ImaginaryNumber() {
+        this.realPart = 0;
+        this.imaginaryPart = 0;
+    }
+    public String printNumber() {
+        return realPart + " + " + imaginaryPart + "i";
+    }
+}
