@@ -80,4 +80,65 @@ public class Assignment {
         }
     }
 }
+// TASK 4
+public class Employee {
+    public String name;
+    public double salary;
+    public String designation;
+    
+    // Default constructor
+    public Employee() {
+        this.name = null;
+        this.salary = 0.0;
+        this.designation = null;
+    }
+    
+    // Method to initialize a new employee
+    public void newEmployee(String employeeName) {
+        this.name = employeeName;
+        this.salary = 30000.0;
+        this.designation = "junior";
+    }
+    
+    // Method to display employee information
+    public void displayInfo() {
+        System.out.println("Employee Name: " + name);
+        System.out.println("Employee Salary: " + salary + " Tk");
+        System.out.println("Employee Designation: " + designation);
+    }
+    
+    // Method to calculate and display tax
+    public void calculateTax() {
+        double taxAmount = 0.0;
+        
+        if (salary > 50000) {
+            taxAmount = salary * 0.30;  // 30% tax
+            System.out.println(name + " Tax Amount: " + taxAmount + " Tk");
+        } else if (salary > 30000) {
+            taxAmount = salary * 0.10;  // 10% tax
+            System.out.println(name + " Tax Amount: " + taxAmount + " Tk");
+        } else {
+            System.out.println("No need to pay tax");
+        }
+    }
+    
+    // Method to promote employee
+    public void promoteEmployee(String newDesignation) {
+        double increment = 0.0;
+        
+        if (newDesignation.equals("senior")) {
+            increment = 25000.0;
+        } else if (newDesignation.equals("lead")) {
+            increment = 50000.0;
+        } else if (newDesignation.equals("manager")) {
+            increment = 75000.0;
+        }
+        
+        this.designation = newDesignation;
+        this.salary += increment;
+        
+        System.out.println(name + " has been promoted to " + newDesignation);
+        System.out.printf("New Salary: %.2f Tk\n", salary);
+    }
+}
 
