@@ -2,7 +2,7 @@
 public class Shelf
 {
     public int capacity;
-    private int numberOfBooks;
+    public int numberOfBooks;
     
     public Shelf()
     {
@@ -37,11 +37,11 @@ public class Shelf
 //TASK 2
 public class Cart
 {
-    private int cartNumber;
-    private String[] items;
-    private double[] prices;
-    private int itemCount;
-    private double discountPercentage;
+    public int cartNumber;
+    public String[] items;
+    public double[] prices;
+    public int itemCount;
+    public double discountPercentage;
     
     public Cart()
     {
@@ -103,10 +103,10 @@ public class Cart
 //TASK 3
 public class Reader
 {
-    private String name;
-    private int capacity;
-    private String[] books;
-    private int bookCount;
+    public String name;
+    public int capacity;
+    public String[] books;
+    public int bookCount;
     
     public Reader()
     {
@@ -158,10 +158,10 @@ public class Reader
 //TASK 4
 public class MoneyTracker
 {
-    private String name;
-    private double balance;
-    private double lastIncome;
-    private double lastExpense;
+    public String name;
+    public double balance;
+    public double lastIncome;
+    public double lastExpense;
     
     public MoneyTracker()
     {
@@ -215,4 +215,3 @@ public class MoneyTracker
         System.out.println("Last spent: " + lastExpense);
     }
 }
-
