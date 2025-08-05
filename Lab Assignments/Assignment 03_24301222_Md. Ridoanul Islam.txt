@@ -1,0 +1,217 @@
+//TASK 1
+public class Shelf
+{
+    public int capacity;
+    public int numberOfBooks;
+    
+    public Shelf()
+    {
+        this.capacity = 0;
+        this.numberOfBooks = 0;
+    }
+    
+    public void showDetails()
+    {
+        System.out.println("Shelf capacity: " + capacity);
+        System.out.println("Number of books: " + numberOfBooks);
+    }
+    
+    public void addBooks(int books)
+    {
+        if (capacity == 0)
+        {
+            System.out.println("Zero capacity. Cannot add books.");
+        }
+        else if (numberOfBooks + books > capacity)
+        {
+            System.out.println("Exceeds capacity");
+        }
+        else
+        {
+            numberOfBooks += books;
+            System.out.println(books + " books added to shelf");
+        }
+    }
+}
+
+//TASK 2
+public class Cart
+{
+    public int cartNumber;
+    public String[] items;
+    public double[] prices;
+    public int itemCount;
+    public double discountPercentage;
+    
+    public Cart()
+    {
+        this.items = new String[3];
+        this.prices = new double[3];
+        this.itemCount = 0;
+        this.discountPercentage = 0.0;
+    }
+    
+    public void create_cart(int cartNumber)
+    {
+        this.cartNumber = cartNumber;
+    }
+    
+    public void addItem(String item, double price)
+    {
+        if (itemCount < 3)
+        {
+            items[itemCount] = item;
+            prices[itemCount] = price;
+            itemCount++;
+            System.out.println(item + " added to cart " + cartNumber + ".");
+            System.out.println("You have " + itemCount + " item(s) in your cart now.");
+        }
+        else
+        {
+            System.out.println("You already have 3 items on your cart");
+        }
+    }
+    
+    public void addItem(double price, String item)
+    {
+        addItem(item, price);
+    }
+    
+    public void cartDetails()
+    {
+        System.out.println("Your cart(c" + cartNumber + ") : ");
+        double total = 0;
+        for (int i = 0; i < itemCount; i++)
+        {
+            System.out.println(items[i] + " - " + prices[i]);
+            total += prices[i];
+        }
+        System.out.println("Discount Applied: " + discountPercentage + "%");
+        if (discountPercentage > 0)
+        {
+            total = total - (total * discountPercentage / 100);
+        }
+        System.out.println("Total price: " + total);
+    }
+    
+    public void giveDiscount(double discount)
+    {
+        this.discountPercentage = discount;
+    }
+}
+
+//TASK 3
+public class Reader
+{
+    public String name;
+    public int capacity;
+    public String[] books;
+    public int bookCount;
+    
+    public Reader()
+    {
+        this.name = "New user";
+        this.capacity = 0;
+        this.bookCount = 0;
+    }
+    
+    public String createReader(String name, int capacity)
+    {
+        this.name = name;
+        this.capacity = capacity;
+        this.books = new String[capacity];
+        return "A new reader is created!";
+    }
+    
+    public void readerInfo()
+    {
+        System.out.println("Name: " + name);
+        System.out.println("Capacity: " + capacity);
+        System.out.println("Books: ");
+        if (bookCount == 0)
+        {
+            System.out.println("No books added yet");
+        }
+        else
+        {
+            for (int i = 0; i < bookCount; i++)
+            {
+                System.out.println("Book " + (i + 1) + ": " + books[i]);
+            }
+        }
+    }
+    
+    public void addBook(String bookName)
+    {
+        if (bookCount < capacity)
+        {
+            books[bookCount] = bookName;
+            bookCount++;
+        }
+        else
+        {
+            System.out.println("No more capacity");
+        }
+    }
+}
+
+//TASK 4
+public class MoneyTracker
+{
+    public String name;
+    public double balance;
+    public double lastIncome;
+    public double lastExpense;
+    
+    public MoneyTracker()
+    {
+        this.name = null;
+        this.balance = 0.0;
+        this.lastIncome = 0.0;
+        this.lastExpense = 0.0;
+    }
+    
+    public String info()
+    {
+        return "Name: " + name + "\nCurrent Balance: " + balance;
+    }
+    
+    public void createTracker(String name)
+    {
+        this.name = name;
+        this.balance = 1.0;
+    }
+    
+    public void income(double amount)
+    {
+        this.balance += amount;
+        this.lastIncome = amount;
+        System.out.println("Balance Updated!");
+    }
+    
+    public void expense(double amount)
+    {
+        if (balance < amount)
+        {
+            System.out.println("Not enough balance.");
+        }
+        else if (balance == amount)
+        {
+            this.balance -= amount;
+            this.lastExpense = amount;
+            System.out.println("You're broke!");
+        }
+        else
+        {
+            this.balance -= amount;
+            this.lastExpense = amount;
+            System.out.println("Balance Updated.");
+        }
+    }
+    
+    public void showHistory()
+    {
+        System.out.println("Last added: " + lastIncome);
+        System.out.println("Last spent: " + lastExpense);
+    }
+}
