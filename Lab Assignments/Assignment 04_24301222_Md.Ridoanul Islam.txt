@@ -193,4 +193,67 @@ public class Triangle
         }
     }
 }
+//TASK 04
+// Player.java
+public class Player
+{
+    public String name;
+    public int age;
+    public int totalMatches;
 
+    public Player(String name, int age, int totalMatches)
+    {
+        this.name = name;
+        this.age = age;
+        this.totalMatches = totalMatches;
+    }
+}
+
+public class Team
+{
+    public String name;
+    public Player[] players;
+    public int playerCount;
+    public static final int MAX_PLAYERS = 10;
+
+    public Team()
+    {
+        players = new Player[MAX_PLAYERS];
+        playerCount = 0;
+    }
+
+    public Team(String name)
+    {
+        this();
+        this.name = name;
+    }
+
+    public void updateName(String name)
+    {
+        this.name = name;
+    }
+
+    public void addPlayer(Player p)
+    {
+        if (playerCount < players.length)
+        {
+            players[playerCount++] = p;
+        }
+        else
+        {
+            System.out.println("Cannot add more players");
+        }
+    }
+
+    public void printDetail()
+    {
+        System.out.println("Team: " + name);
+        System.out.println("List of players: ");
+        for (int i = 0; i < playerCount; i++)
+        {
+            Player p = players[i];
+            System.out.println("Name: " + p.name);
+            System.out.println("Age: " + p.age + ", Total Matches: " + p.totalMatches);
+        }
+    }
+}
